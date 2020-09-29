@@ -35,6 +35,18 @@ public class UserRegistration {
 			System.out.println("Please enter the Last name as mentioned");
 
 	}
+	public void emailValidator() {
+		System.out.println("Enter your Email :");
+		String email = in.next();
+		Pattern pattern = Pattern
+				.compile("^([a-z]){1,}([.+_-]{0,1}[0-9a-z]*){0,1}(@){1}([0-9a-z]*)(.([a-z]){2,3}){1}(.[a-z]){2}?$");
+		Matcher matcher = pattern.matcher(email);
+		Boolean b = matcher.find();
+		if (b)
+			System.out.println("Email is Validated");
+		else
+			System.out.println("Please enter the correct mail id");
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Page");
@@ -43,7 +55,8 @@ public class UserRegistration {
 		newUser.firstNameValidator();
 		// for last name
 		newUser.lastNameValidator();
-
+		// for email
+		newUser.emailValidator();
 	}
 
 }
