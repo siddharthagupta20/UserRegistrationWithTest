@@ -20,6 +20,7 @@ public class UserRegistration {
 				throw new FirstNameValidatorException("Enter a valid name");
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 
@@ -35,6 +36,7 @@ public class UserRegistration {
 				throw new LastNameValidatorException("Enter a valid last name");
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 
 	}
@@ -52,6 +54,7 @@ public class UserRegistration {
 				throw new EmailValidatorException("Enter valid email");
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 
@@ -68,6 +71,7 @@ public class UserRegistration {
 				throw new MobileNoValidatorException("Enter valid Mobile No");
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 
@@ -83,6 +87,7 @@ public class UserRegistration {
 				throw new PasswordValidatorException("Enter valid Password");
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 
