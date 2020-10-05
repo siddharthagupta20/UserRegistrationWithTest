@@ -71,6 +71,7 @@ public class UserRegistration {
 				throw new MobileNoValidatorException("Enter valid Mobile No");
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 
