@@ -8,8 +8,8 @@ public class UserRegistrationTest {
 	@Test
 	public void givenFirstName_whenValid_shouldReturnValid() {
 		UserRegistration ur = new UserRegistration();
-		assertTrue("Valid", ur.firstNameValidator("John"));
 
+		assertTrue("Valid", ur.firstNameValidator("John"));
 	}
 
 	@Test
@@ -28,6 +28,7 @@ public class UserRegistrationTest {
 	public void givenMobile_whenValid_shouldReturnValid() {
 		UserRegistration ur = new UserRegistration();
 		assertTrue("Valid", ur.mobileNoValidator("11 1111111111"));
+
 	}
 
 	@Test
