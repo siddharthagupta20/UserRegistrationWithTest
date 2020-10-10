@@ -2,9 +2,8 @@ package com.cg.ur.test;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
-public class UserRegistration implements UserValidator {
+public class UserRegistration {
 
 	private Scanner in;
 	private Pattern pattern;
@@ -16,11 +15,11 @@ public class UserRegistration implements UserValidator {
 	}
 
 	public boolean firstNameValidator(String fname) throws FirstNameValidatorException {
-		UserValidator urFirstName=(str)->{
+		UserValidator urFirstName = (str) -> {
 			pattern = Pattern.compile("^([A-Z])[a-z]{2,}$");
 			return pattern.matcher(str).find();
 		};
-		
+
 		try {
 			if (urFirstName.validator(fname))
 				return true;
@@ -33,7 +32,7 @@ public class UserRegistration implements UserValidator {
 	}
 
 	public boolean lastNameValidator(String lname) throws LastNameValidatorException {
-		UserValidator urLastName=(str)->{
+		UserValidator urLastName = (str) -> {
 			pattern = Pattern.compile("^([A-Z])[a-z]{2,}$");
 			return pattern.matcher(str).find();
 		};
@@ -50,8 +49,9 @@ public class UserRegistration implements UserValidator {
 	}
 
 	public boolean emailValidator(String email) throws EmailValidatorException {
-		UserValidator urEmail=(str)->{
-			pattern = Pattern.compile("^[a-zA-Z]*([_+-.][a-zA-Z0-9]+){0,1}[@][a-z0-9]+[.][a-z]{2,3}([.][a-zA-Z]{2,3}){0,1}$");
+		UserValidator urEmail = (str) -> {
+			pattern = Pattern
+					.compile("^[a-zA-Z]*([_+-.][a-zA-Z0-9]+){0,1}[@][a-z0-9]+[.][a-z]{2,3}([.][a-zA-Z]{2,3}){0,1}$");
 			return pattern.matcher(str).find();
 		};
 		try {
@@ -66,7 +66,7 @@ public class UserRegistration implements UserValidator {
 	}
 
 	public boolean mobileNoValidator(String mob) throws MobileNoValidatorException {
-		UserValidator urMob=(str)->{
+		UserValidator urMob = (str) -> {
 			pattern = Pattern.compile("^\\d{2} [1-9]\\d{9}$");
 			return pattern.matcher(str).find();
 		};
@@ -83,7 +83,7 @@ public class UserRegistration implements UserValidator {
 	}
 
 	public boolean passwordValidator(String pass) throws PasswordValidatorException {
-		UserValidator urPass=(str)->{
+		UserValidator urPass = (str) -> {
 			pattern = Pattern.compile("^(?=.*\\d)(?=.*[A-Z])(?=.*\\W)(?!.*\\W\\w*\\W)(?!.*\\s).{8,}$");
 			return pattern.matcher(str).find();
 		};
@@ -100,15 +100,14 @@ public class UserRegistration implements UserValidator {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Page");
-		UserRegistration ur=new UserRegistration();
+		UserRegistration ur = new UserRegistration();
 		System.out.println("Checking. Enter first name: ");
-		String firstName=ur.in.next();
+		String firstName = ur.in.next();
 		try {
-		if(ur.firstNameValidator(firstName)) {
-			System.out.println("Valid");
-		}
-		}
-		catch(Exception e) {
+			if (ur.firstNameValidator(firstName)) {
+				System.out.println("Valid");
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
